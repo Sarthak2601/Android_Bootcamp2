@@ -4,24 +4,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.telecom.Call;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
+
+    Button msend;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+
         // Configuring the manifest
 
         //What is Activity
 
         //
-        Button msend = findViewById(R.id.send);
+       // Button msend = findViewById(R.id.send);
 
+        msend = findViewById(R.id.send);
         msend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("Log_Test", "on-Click ==========>>>>>Button Clicked ");
+                Intent intent = new Intent(MainActivity.this, CallActivity.class);
+                startActivity(intent);
+
+            }
+        });
+
+      /*  msend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
@@ -30,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra(Intent.EXTRA_TEXT,"Message");
                 startActivity(intent);
             }
-        });
+        });*/
 
 
         // Uri webpage = Uri.parse(url);
